@@ -9,11 +9,8 @@ const socketio = require("socket.io");
 const server = http.createServer(app);
 const io = socketio(server);
 
-const cors = require("cors");
-
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors());
 
 io.on("connection", function(socket){
     socket.on("send-location", function(data){
